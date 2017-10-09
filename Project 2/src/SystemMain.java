@@ -17,10 +17,6 @@ public class SystemMain {
 	 * Number of total lists
 	 */
 	private int listCount;
-
-	public static void main(String[] args) {
-		new SystemMain(2);
-	}
 	
 	/**
 	 * Constructor for System Main
