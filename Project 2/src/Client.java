@@ -17,12 +17,7 @@ public class Client {
 		}
 		for (int i = 1; i <= addMax; i++) {
 			int whichList = i - 1;
-			Command add = new Command() {
-				public void Execute() {
-					//To do
-					lists[whichList].AddToList(item);
-				}
-			};
+			Command add = new AddCommand(whichList);
 		}
 		for (int i = numLists + 1; i <= printMax; i++) {
 			int whichList = i - numLists - 1;
@@ -44,25 +39,4 @@ public class Client {
 			
 		}
 	}
-
-}
-
-class AddCommand {
-	
-}
-
-class PrintCommand {
-	
-}
-
-class SortCommand {
-	
-}
-
-class ClearCommand {
-	
-}
-
-class QuitCommand {
-	
 }
