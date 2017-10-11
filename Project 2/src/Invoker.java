@@ -5,6 +5,11 @@ public class Invoker {
 	
 	public Invoker(Command[] commands) {
 		this.commands = commands;
+		Main();
+	}
+	
+	public void Main() {
+		
 	}
 
 }

@@ -2,5 +2,5 @@
 public interface Command {
 	
 	
-	public void Execute();
+	public String Execute();
 }

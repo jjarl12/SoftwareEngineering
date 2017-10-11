@@ -14,7 +14,7 @@ public class Client {
 		List[] lists = new List[numLists];
 		Command[] commands = new Command[quit];
 		for (int i = 0; i < numLists; i++) {
-			lists[i] = new List();
+			lists[i] = new List(i + 1);
 		}
 		for (int i = 0; i < addMax; i++) {
 			int whichList = i;
@@ -29,10 +29,14 @@ public class Client {
 		for (int i = numLists * 2; i < sortMax; i++) {
 			int whichList = i - numLists * 2;
 			Command sort = new SortCommand(lists[whichList]);
+			commands[i] = sort;
 		}
 		for (int i = numLists * 3; i < clearMax; i++) {
 			int whichList = i - numLists * 3;
 			Command clear = new ClearCommand(lists[whichList]);
+			commands[i] = clear;
 		}
+		
+		new Invoker(commands);
 	}
 }

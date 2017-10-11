@@ -13,11 +13,18 @@ public class List {
 	 */
 	private ArrayList<String> myList;
 	
+	private int listNumber;
+	
 	/**
 	 * list constructor
 	 */
-	public List() {
+	public List(int listNumber) {
 		myList = new ArrayList<String>();
+		this.listNumber = listNumber;
+	}
+	
+	public int GetListNumber() {
+		return listNumber;
 	}
 	
 	/**
@@ -25,7 +32,14 @@ public class List {
 	 * @return
 	 */
 	public String PrintList() {
-		return myList.toString();
+		String returnString = "List " + listNumber + " is {";
+		for (int i = 0; i < myList.size(); i++) {
+			returnString += myList.get(i);
+			if(i + 1 != myList.size())
+				returnString += ", ";
+		}
+		returnString += "}";
+		return returnString;
 	}
 	
 	/**

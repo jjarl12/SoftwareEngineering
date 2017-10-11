@@ -26,14 +26,8 @@ public class SystemMain {
 		listOfLists = new ArrayList<List>();
 		listCount = newListCount;
 		for (int i = 0; i < listCount; i++) {
-			listOfLists.add(new List());
+			listOfLists.add(new List(i));
 		}
-		
-		Command print = new Command() {
-			public void Execute() {
-				listOfLists.get(0).PrintList();
-			}
-		};
 		Main();
 	}
 	

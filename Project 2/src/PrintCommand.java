@@ -4,8 +4,8 @@ public class PrintCommand implements Command{
 	private List list;
 
 	@Override
-	public void Execute() {
-		String output = list.PrintList();
+	public String Execute() {
+		return list.PrintList();
 	}
 
 	public PrintCommand(List list) {

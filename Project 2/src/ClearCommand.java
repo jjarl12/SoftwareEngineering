@@ -4,9 +4,9 @@ public class ClearCommand implements Command {
 	private List list;
 
 	@Override
-	public void Execute() {
-		// TODO Auto-generated method stub
-		
+	public String Execute() {
+		list.ClearList();
+		return "List " + list.GetListNumber() + " is now empty";
 	}
 
 	public ClearCommand(List list) {
