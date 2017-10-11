@@ -12,23 +12,26 @@ public class Client {
 		int clearMax = numLists * 4;
 		int quit = numLists * 4 + 1;
 		List[] lists = new List[numLists];
+		Command[] commands = new Command[quit];
 		for (int i = 0; i < numLists; i++) {
 			lists[i] = new List();
 		}
-		for (int i = 1; i <= addMax; i++) {
-			int whichList = i - 1;
+		for (int i = 0; i < addMax; i++) {
+			int whichList = i;
 			Command add = new AddCommand(lists[whichList]);
+			commands[i] = add;
 		}
-		for (int i = numLists + 1; i <= printMax; i++) {
-			int whichList = i - numLists - 1;
+		for (int i = numLists; i < printMax; i++) {
+			int whichList = i - numLists;
 			Command print = new PrintCommand(lists[whichList]);
+			commands[i] = print;
 		}
-		for (int i = numLists * 2 + 1; i <= sortMax; i++) {
-			int whichList = i - numLists * 2 - 1;
+		for (int i = numLists * 2; i < sortMax; i++) {
+			int whichList = i - numLists * 2;
 			Command sort = new SortCommand(lists[whichList]);
 		}
-		for (int i = numLists * 3 + 1; i <= clearMax; i++) {
-			int whichList = i - numLists * 3 - 1;
+		for (int i = numLists * 3; i < clearMax; i++) {
+			int whichList = i - numLists * 3;
 			Command clear = new ClearCommand(lists[whichList]);
 		}
 	}
