@@ -46,3 +46,23 @@ public class Client {
 	}
 
 }
+
+class AddCommand {
+	
+}
+
+class PrintCommand {
+	
+}
+
+class SortCommand {
+	
+}
+
+class ClearCommand {
+	
+}
+
+class QuitCommand {
+	
+}
