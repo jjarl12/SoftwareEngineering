@@ -15,16 +15,23 @@ public class List {
 	
 	private int listNumber;
 	
+	private int wordInList;
+	
 	/**
 	 * list constructor
 	 */
 	public List(int listNumber) {
 		myList = new ArrayList<String>();
+		wordInList = 1;
 		this.listNumber = listNumber;
 	}
 	
 	public int GetListNumber() {
 		return listNumber;
+	}
+	
+	public int GetWordInList() {
+		return wordInList;
 	}
 	
 	/**
@@ -55,6 +62,7 @@ public class List {
 	 */
 	public void AddToList(String item) {
 		myList.add(item);
+		wordInList++;
 	}
 	
 	/**
@@ -62,5 +70,6 @@ public class List {
 	 */
 	public void ClearList() {
 		myList.clear();
+		wordInList = 1;
 	}
 }

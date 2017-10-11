@@ -12,7 +12,7 @@ public class AddCommand implements Command {
 		int i = 1;
 		Scanner input = new Scanner(System.in);
 		while (!word.equals("0")) {
-			System.out.print("Enter word " + i + ": ");
+			System.out.print("Enter word " + list.GetWordInList() + ": ");
 			word = input.nextLine();
 			if (!word.equals("0"))
 			{
@@ -26,6 +26,4 @@ public class AddCommand implements Command {
 	public AddCommand(List list) {
 		this.list = list;
 	}
-
-	
 }
