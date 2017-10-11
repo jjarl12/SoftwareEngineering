@@ -1,5 +1,5 @@
 
-public class AddCommand implements Command {
+public class SortCommand implements Command{
 	
 	private List list;
 
@@ -8,10 +8,8 @@ public class AddCommand implements Command {
 		// TODO Auto-generated method stub
 		
 	}
-	
-	public AddCommand(List list) {
+
+	public SortCommand(List list) {
 		this.list = list;
 	}
-
-	
 }
