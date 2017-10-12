@@ -10,9 +10,9 @@ public class Client {
 		int printMax = numLists * 2;
 		int sortMax = numLists * 3;
 		int clearMax = numLists * 4;
-		int quit = numLists * 4 + 1;
+		int quitMax = numLists * 4 + 1;
 		List[] lists = new List[numLists];
-		Command[] commands = new Command[quit];
+		Command[] commands = new Command[quitMax];
 		for (int i = 0; i < numLists; i++) {
 			lists[i] = new List(i + 1);
 		}
@@ -37,6 +37,8 @@ public class Client {
 			commands[i] = clear;
 		}
 		
+		Command quit = new QuitCommand();
+		commands[clearMax] = quit;
 		new Invoker(commands);
 	}
 }
