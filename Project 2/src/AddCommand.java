@@ -2,11 +2,22 @@ import java.util.Scanner;
 
 public class AddCommand implements Command {
 	
+	/**
+	 * The list object
+	 */
 	private List list;
+	
+	/**
+	 * Holds main system print out
+	 */
+	private String printOut;
 
+	/**
+	 * AddCommand execute method
+	 */
 	@Override
 	public String Execute() {
-		System.out.println("Enter words into List " + (list.GetListNumber()) + " one at a time");
+		System.out.println("\nEnter words into List " + (list.GetListNumber()) + " one at a time");
 		System.out.println("Enter the number 0 to stop\n");
 		String word = "";
 		int i = 1;
@@ -23,7 +34,19 @@ public class AddCommand implements Command {
 		return "";
 	}
 	
+	/**
+	 * AddCommand constructor
+	 * @param list
+	 */
 	public AddCommand(List list) {
 		this.list = list;
+		printOut = "Enter words into List " + list.GetListNumber();
+	}
+	
+	/**
+	 * Getter for printout
+	 */
+	public String GetPrintOut() {
+		return printOut;
 	}
 }

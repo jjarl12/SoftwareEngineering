@@ -1,10 +1,19 @@
-
+/**
+ * Project 2
+ * 1203
+ * @author Jonathan Jarl
+ *
+ */
 public class Client {
 
 	public static void main(String[] args) {
 		new Client(2);
 	}
 	
+	/**
+	 * Client Constructor that creates program
+	 * @param numLists
+	 */
 	public Client(int numLists) {
 		int addMax = numLists;
 		int printMax = numLists * 2;

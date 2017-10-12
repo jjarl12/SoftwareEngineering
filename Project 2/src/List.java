@@ -13,8 +13,14 @@ public class List {
 	 */
 	private ArrayList<String> myList;
 	
+	/**
+	 * Stores the number of the list
+	 */
 	private int listNumber;
 	
+	/**
+	 * Stores the number of words in the list
+	 */
 	private int wordInList;
 	
 	/**
@@ -26,10 +32,18 @@ public class List {
 		this.listNumber = listNumber;
 	}
 	
+	/**
+	 * Getter for listNumber
+	 * @return
+	 */
 	public int GetListNumber() {
 		return listNumber;
 	}
 	
+	/**
+	 * Getter for wordInList
+	 * @return
+	 */
 	public int GetWordInList() {
 		return wordInList;
 	}
