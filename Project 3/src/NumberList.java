@@ -31,10 +31,33 @@ public class NumberList {
 		String returnString = "List " + listNumber + " is {";
 		for (int i = 0; i < myList.size(); i++) {
 			returnString += myList.get(i);
-			if(i + 1 != myList.size())
+			if (i + 1 != myList.size())
 				returnString += ", ";
 		}
 		returnString += "}";
 		return returnString;
+	}
+	
+	public void AddToList(int number) {
+		myList.add(number);
+	}
+	
+	public void AddToList(double number) {
+		myList.add(number);
+	}
+	
+	public void ClearList() {
+		myList.clear();
+		numberInList = 1;
+	}
+	
+	public Number GetLargestNumber() {
+		if (myList.size() == 0)
+			return -0;
+		Number numberToReturn = myList.get(0);
+		for (int i = 1; i < myList.size(); i++) {
+			if (myList.get(i) > numberToReturn)
+				numberToReturn = myList.get(i);
+		}
 	}
 }
