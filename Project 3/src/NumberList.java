@@ -7,14 +7,14 @@ import java.util.ArrayList;
  */
 public class NumberList {
 
-	private ArrayList<Number> myList;
+	private ArrayList<Double> myList;
 	
 	private int listNumber;
 	
 	private int numberInList;
 	
 	public NumberList(int listNumber) {
-		myList = new ArrayList<Number>();
+		myList = new ArrayList<Double>();
 		numberInList = 1;
 		this.listNumber = listNumber;
 	}
@@ -39,7 +39,7 @@ public class NumberList {
 	}
 	
 	public void AddToList(int number) {
-		myList.add(number);
+		myList.add((double) number);
 	}
 	
 	public void AddToList(double number) {
@@ -54,10 +54,11 @@ public class NumberList {
 	public Number GetLargestNumber() {
 		if (myList.size() == 0)
 			return -0;
-		Number numberToReturn = myList.get(0);
+		double numberToReturn = myList.get(0);
 		for (int i = 1; i < myList.size(); i++) {
 			if (myList.get(i) > numberToReturn)
 				numberToReturn = myList.get(i);
 		}
+		return numberToReturn;
 	}
 }
