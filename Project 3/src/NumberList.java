@@ -2,10 +2,10 @@ import java.util.ArrayList;
 
 /**
  * NumberList model
- * @author Jonathan
+ * @author Jonathan Jarl
  *
  */
-public class NumberList {
+public class NumberList implements List{
 
 	private ArrayList<Double> myList;
 	

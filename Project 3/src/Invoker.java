@@ -26,7 +26,7 @@ public class Invoker {
 	 * Main system print out
 	 */
 	public void Main() {
-		while(1 == 1) {
+		while(true) {
 			int option = 0;
 			System.out.println("String List Menu");
 			for (int i = 0; i < commands.length; i++) {

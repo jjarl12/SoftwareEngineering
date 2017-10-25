@@ -20,10 +20,10 @@ public class Client {
 		int sortMax = numLists * 3;
 		int clearMax = numLists * 4;
 		int quitMax = numLists * 4 + 1;
-		List[] lists = new List[numLists];
+		StringList[] lists = new StringList[numLists];
 		Command[] commands = new Command[quitMax];
 		for (int i = 0; i < numLists; i++) {
-			lists[i] = new List(i + 1);
+			lists[i] = new StringList(i + 1);
 		}
 		for (int i = 0; i < addMax; i++) {
 			int whichList = i;

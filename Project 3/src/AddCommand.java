@@ -5,7 +5,7 @@ public class AddCommand implements Command {
 	/**
 	 * The list object
 	 */
-	private List list;
+	private StringList list;
 	
 	/**
 	 * Holds main system print out
@@ -38,7 +38,7 @@ public class AddCommand implements Command {
 	 * AddCommand constructor
 	 * @param list
 	 */
-	public AddCommand(List list) {
+	public AddCommand(StringList list) {
 		this.list = list;
 		printOut = "Enter words into List " + list.GetListNumber();
 	}

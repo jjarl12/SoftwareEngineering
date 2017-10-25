@@ -4,7 +4,7 @@ public class SortCommand implements Command{
 	/**
 	 * The list object
 	 */
-	private List list;
+	private StringList list;
 	
 	/**
 	 * System main printout string
@@ -24,7 +24,7 @@ public class SortCommand implements Command{
 	 * SortCommand constructor
 	 * @param list
 	 */
-	public SortCommand(List list) {
+	public SortCommand(StringList list) {
 		this.list = list;
 		printOut = "Sort List " + list.GetListNumber();
 	}

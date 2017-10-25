@@ -24,7 +24,7 @@ public class ClearCommand implements Command {
 	 * ClearCommand constructor
 	 * @param list
 	 */
-	public ClearCommand(List list) {
+	public ClearCommand(T list) {
 		this.list = list;
 		printOut = "Clear List " + list.GetListNumber();
 	}
