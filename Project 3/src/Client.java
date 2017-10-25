@@ -27,7 +27,7 @@ public class Client {
 		}
 		for (int i = 0; i < addMax; i++) {
 			int whichList = i;
-			Command add = new AddCommand(lists[whichList]);
+			Command add = new AddWordCommand(lists[whichList]);
 			commands[i] = add;
 		}
 		for (int i = numLists; i < printMax; i++) {

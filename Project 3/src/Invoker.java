@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -11,15 +12,19 @@ public class Invoker {
 	/**
 	 * The list of command objects
 	 */
-	private Command[] commands;
+	private ArrayList<Command> commands;
 	
 	/**
 	 * Invoker constructor
 	 * @param commands
 	 */
-	public Invoker(Command[] commands) {
+	public Invoker(ArrayList<Command> commands) {
 		this.commands = commands;
 		Main();
+	}
+	
+	public void AddCommands(Command command) {
+		commands.add(command);
 	}
 	
 	/**
@@ -29,14 +34,14 @@ public class Invoker {
 		while(true) {
 			int option = 0;
 			System.out.println("String List Menu");
-			for (int i = 0; i < commands.length; i++) {
-				System.out.println((i + 1) + ":" + commands[i].GetPrintOut());
+			for (int i = 0; i < commands.size(); i++) {
+				System.out.println((i + 1) + ":" + commands.get(i).GetPrintOut());
 			}
 			System.out.println("Please pick an option:");
 			Scanner input = new Scanner(System.in);
 			option = input.nextInt() - 1;
-			if(option >= 0 && option < commands.length)
-				System.out.print(commands[option].Execute());
+			if(option >= 0 && option < commands.size())
+				System.out.print(commands.get(option).Execute());
 			else
 				System.out.println("Please select a valid option");
 			System.out.println();

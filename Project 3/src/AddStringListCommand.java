@@ -1,5 +1,5 @@
 
-public class AddListCommand implements Command {
+public class AddStringListCommand implements Command {
 
 	@Override
 	public String Execute() {
@@ -9,8 +9,7 @@ public class AddListCommand implements Command {
 
 	@Override
 	public String GetPrintOut() {
-		// TODO Auto-generated method stub
-		return null;
+		return "";
 	}
 
 }

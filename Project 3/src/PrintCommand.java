@@ -4,7 +4,7 @@ public class PrintCommand implements Command{
 	/**
 	 * The list object
 	 */
-	private StringList list;
+	private List list;
 	
 	/**
 	 * Holds main system printout
@@ -23,7 +23,7 @@ public class PrintCommand implements Command{
 	 * Constructor for PrintCommand
 	 * @param list
 	 */
-	public PrintCommand(StringList list) {
+	public PrintCommand(List list) {
 		this.list = list;
 		printOut = "Print List " + list.GetListNumber();
 	}

@@ -9,13 +9,15 @@ public class NumberList implements List{
 
 	private ArrayList<Double> myList;
 	
+	private ArrayList<Boolean> typeList;
+	
 	private int listNumber;
 	
-	private int numberInList;
+	private int itemInList;
 	
 	public NumberList(int listNumber) {
 		myList = new ArrayList<Double>();
-		numberInList = 1;
+		itemInList = 1;
 		this.listNumber = listNumber;
 	}
 	
@@ -23,14 +25,18 @@ public class NumberList implements List{
 		return listNumber;
 	}
 	
-	public int GetNumberInList() {
-		return numberInList;
+	public int GetItemInList() {
+		return itemInList;
 	}
 	
 	public String PrintList() {
 		String returnString = "List " + listNumber + " is {";
 		for (int i = 0; i < myList.size(); i++) {
-			returnString += myList.get(i);
+			double number = myList.get(i);
+			if (typeList.get(i) == true) 
+				returnString += (int) number;
+			else
+				returnString += number;
 			if (i + 1 != myList.size())
 				returnString += ", ";
 		}
@@ -40,25 +46,31 @@ public class NumberList implements List{
 	
 	public void AddToList(int number) {
 		myList.add((double) number);
+		typeList.add(true);
 	}
 	
 	public void AddToList(double number) {
 		myList.add(number);
+		typeList.add(false);
 	}
 	
 	public void ClearList() {
 		myList.clear();
-		numberInList = 1;
+		typeList.clear();
+		itemInList = 1;
 	}
 	
 	public Number GetLargestNumber() {
 		if (myList.size() == 0)
 			return -0;
-		double numberToReturn = myList.get(0);
+		int indexToReturn = 0;
 		for (int i = 1; i < myList.size(); i++) {
-			if (myList.get(i) > numberToReturn)
-				numberToReturn = myList.get(i);
+			if (myList.get(i) > myList.get(indexToReturn))
+				indexToReturn = i;
 		}
+		double numberToReturn = myList.get(indexToReturn);
+		if (typeList.get(indexToReturn) == true)
+			return (int) numberToReturn;
 		return numberToReturn;
 	}
 }

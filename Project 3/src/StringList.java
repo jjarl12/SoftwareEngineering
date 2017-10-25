@@ -21,14 +21,14 @@ public class StringList implements List{
 	/**
 	 * Stores the number of words in the list
 	 */
-	private int wordInList;
+	private int itemInList;
 	
 	/**
 	 * list constructor
 	 */
 	public StringList(int listNumber) {
 		myList = new ArrayList<String>();
-		wordInList = 1;
+		itemInList = 1;
 		this.listNumber = listNumber;
 	}
 	
@@ -44,8 +44,8 @@ public class StringList implements List{
 	 * Getter for wordInList
 	 * @return
 	 */
-	public int GetWordInList() {
-		return wordInList;
+	public int GetItemInList() {
+		return itemInList;
 	}
 	
 	/**
@@ -76,7 +76,7 @@ public class StringList implements List{
 	 */
 	public void AddToList(String item) {
 		myList.add(item);
-		wordInList++;
+		itemInList++;
 	}
 	
 	/**
@@ -84,6 +84,6 @@ public class StringList implements List{
 	 */
 	public void ClearList() {
 		myList.clear();
-		wordInList = 1;
+		itemInList = 1;
 	}
 }
