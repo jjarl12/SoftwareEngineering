@@ -18,12 +18,14 @@ public class Client {
 	 */
 	public Client(int numLists) {
 		ArrayList<Command> commands = new ArrayList<Command>();
-		Command addNumberList = new AddNumberListCommand();
-		Command addStringList = new AddStringListCommand();
+		ListCounts listCount = new ListCounts();
+		Invoker invoker = new Invoker(commands);
+		Command addNumberList = new AddNumberListCommand(listCount, invoker);
+		Command addStringList = new AddStringListCommand(listCount, invoker);
 		Command quit = new QuitCommand();
-		commands.add(addNumberList);
-		commands.add(addStringList);
-		commands.add(quit);
-		new Invoker(commands);
+		invoker.AddCommands(addNumberList);
+		invoker.AddCommands(addStringList);
+		invoker.AddCommands(quit);
+		invoker.Main();
 	}
 }

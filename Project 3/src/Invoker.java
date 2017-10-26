@@ -20,11 +20,18 @@ public class Invoker {
 	 */
 	public Invoker(ArrayList<Command> commands) {
 		this.commands = commands;
-		Main();
 	}
 	
 	public void AddCommands(Command command) {
 		commands.add(command);
+	}
+	
+	public void AddCommands(int index, Command command) {
+		commands.set(index, command);
+	}
+	
+	public ArrayList<Command> GetCommands(){
+		return commands;
 	}
 	
 	/**

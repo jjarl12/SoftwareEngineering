@@ -7,16 +7,14 @@ import java.util.ArrayList;
  */
 public class NumberList implements List{
 
-	private ArrayList<Double> myList;
-	
-	private ArrayList<Boolean> typeList;
+	private ArrayList<Number> myList;
 	
 	private int listNumber;
 	
 	private int itemInList;
 	
 	public NumberList(int listNumber) {
-		myList = new ArrayList<Double>();
+		myList = new ArrayList<Number>();
 		itemInList = 1;
 		this.listNumber = listNumber;
 	}
@@ -32,11 +30,7 @@ public class NumberList implements List{
 	public String PrintList() {
 		String returnString = "List " + listNumber + " is {";
 		for (int i = 0; i < myList.size(); i++) {
-			double number = myList.get(i);
-			if (typeList.get(i) == true) 
-				returnString += (int) number;
-			else
-				returnString += number;
+				returnString += myList.get(i);
 			if (i + 1 != myList.size())
 				returnString += ", ";
 		}
@@ -45,32 +39,34 @@ public class NumberList implements List{
 	}
 	
 	public void AddToList(int number) {
-		myList.add((double) number);
-		typeList.add(true);
+		myList.add(number);
+		itemInList++;
 	}
 	
 	public void AddToList(double number) {
 		myList.add(number);
-		typeList.add(false);
+		itemInList++;
 	}
 	
 	public void ClearList() {
 		myList.clear();
-		typeList.clear();
 		itemInList = 1;
 	}
 	
-	public Number GetLargestNumber() {
+	public String GetLargestNumber() {
 		if (myList.size() == 0)
-			return -0;
+			return "There is nothing in the list";
+		if (myList.size() == 1)
+			return myList.get(0).toString();
 		int indexToReturn = 0;
+		double numberToReturn = myList.get(0).doubleValue();
 		for (int i = 1; i < myList.size(); i++) {
-			if (myList.get(i) > myList.get(indexToReturn))
+			double numberToCompare = myList.get(i).doubleValue();
+			if (numberToCompare > numberToReturn) {
 				indexToReturn = i;
+				numberToReturn = numberToCompare;
+			}
 		}
-		double numberToReturn = myList.get(indexToReturn);
-		if (typeList.get(indexToReturn) == true)
-			return (int) numberToReturn;
-		return numberToReturn;
+		return myList.get(indexToReturn).toString();
 	}
 }

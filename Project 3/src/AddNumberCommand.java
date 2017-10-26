@@ -34,7 +34,7 @@ public class AddNumberCommand implements Command{
 	
 	public AddNumberCommand(NumberList list) {
 		this.list = list;
-		printOut = "";
+		printOut = "Enter numbers into List " + list.GetListNumber();
 	}
 
 	@Override
