@@ -17,9 +17,15 @@ public class AddNumberCommand implements Command{
 			newNumber = input.nextLine();
 			if (!newNumber.equals("quit")) {
 				try {
-					Number toAddNumber = (Number) newNumber;
+					try {
+						int inputNumber = Integer.parseInt(newNumber);
+						list.AddToList(inputNumber);
+					} catch(Exception e) {
+						double inputNumber = Double.parseDouble(newNumber);
+						list.AddToList(inputNumber);
+					}					
 				} catch(Exception e) {
-					
+					System.out.println("Invalid Input");
 				}
 			}
 		}

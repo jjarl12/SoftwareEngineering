@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Project 2
  * 1203
@@ -15,39 +17,13 @@ public class Client {
 	 * @param numLists
 	 */
 	public Client(int numLists) {
-		int addMax = numLists;
-		int printMax = numLists * 2;
-		int sortMax = numLists * 3;
-		int clearMax = numLists * 4;
-		int quitMax = numLists * 4 + 1;
-		StringList[] lists = new StringList[numLists];
-		Command[] commands = new Command[quitMax];
-		for (int i = 0; i < numLists; i++) {
-			lists[i] = new StringList(i + 1);
-		}
-		for (int i = 0; i < addMax; i++) {
-			int whichList = i;
-			Command add = new AddWordCommand(lists[whichList]);
-			commands[i] = add;
-		}
-		for (int i = numLists; i < printMax; i++) {
-			int whichList = i - numLists;
-			Command print = new PrintCommand(lists[whichList]);
-			commands[i] = print;
-		}
-		for (int i = numLists * 2; i < sortMax; i++) {
-			int whichList = i - numLists * 2;
-			Command sort = new SortCommand(lists[whichList]);
-			commands[i] = sort;
-		}
-		for (int i = numLists * 3; i < clearMax; i++) {
-			int whichList = i - numLists * 3;
-			Command clear = new ClearCommand(lists[whichList]);
-			commands[i] = clear;
-		}
-		
+		ArrayList<Command> commands = new ArrayList<Command>();
+		Command addNumberList = new AddNumberListCommand();
+		Command addStringList = new AddStringListCommand();
 		Command quit = new QuitCommand();
-		commands[clearMax] = quit;
+		commands.add(addNumberList);
+		commands.add(addStringList);
+		commands.add(quit);
 		new Invoker(commands);
 	}
 }
