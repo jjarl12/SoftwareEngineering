@@ -1,11 +1,25 @@
 import java.util.Scanner;
 
+/**
+ * This command adds a number to a list
+ * @author Jonathan Jarl
+ *
+ */
 public class AddNumberCommand implements Command{
 	
+	/**
+	 * List the number is added to
+	 */
 	private NumberList list;
 	
+	/**
+	 * PrintOut of the command
+	 */
 	private String printOut;
 
+	/**
+	 * Execute which adds numbers to the list
+	 */
 	@Override
 	public String Execute() {
 		System.out.println("\nEnter numbers into List " + list.GetListNumber() + " one at at time");
@@ -32,11 +46,18 @@ public class AddNumberCommand implements Command{
 		return "";
 	}
 	
+	/**
+	 * Constructor
+	 * @param list
+	 */
 	public AddNumberCommand(NumberList list) {
 		this.list = list;
 		printOut = "Enter numbers into List " + list.GetListNumber();
 	}
 
+	/**
+	 * Getter for printOut
+	 */
 	@Override
 	public String GetPrintOut() {
 		return printOut;
