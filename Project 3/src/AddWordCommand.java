@@ -1,5 +1,10 @@
 import java.util.Scanner;
 
+/**
+ * Add Word Command
+ * @author Jonathan Jarl
+ *
+ */
 public class AddWordCommand implements Command {
 	
 	/**

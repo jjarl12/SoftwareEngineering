@@ -22,14 +22,27 @@ public class Invoker {
 		this.commands = commands;
 	}
 	
+	/**
+	 * Add commands to list of commands
+	 * @param command
+	 */
 	public void AddCommands(Command command) {
 		commands.add(command);
 	}
 	
+	/**
+	 * Add commands to list of commands
+	 * @param index
+	 * @param command
+	 */
 	public void AddCommands(int index, Command command) {
 		commands.set(index, command);
 	}
 	
+	/**
+	 * Getter for commands array
+	 * @return
+	 */
 	public ArrayList<Command> GetCommands(){
 		return commands;
 	}

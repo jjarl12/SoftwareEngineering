@@ -1,18 +1,40 @@
 
+/**
+ * Add a string list command
+ * @author Jonathan Jarl
+ *
+ */
 public class AddStringListCommand implements Command {
 	
+	/**
+	 * Count of lists instance
+	 */
 	private ListCounts listCount;
 	
+	/**
+	 * Invoker instance
+	 */
 	private Invoker invoker;
 	
+	/**
+	 * Command print out
+	 */
 	private String printOut;
 	
+	/**
+	 * Constructor for command
+	 * @param listCount
+	 * @param invoker
+	 */
 	public AddStringListCommand(ListCounts listCount, Invoker invoker) {
 		this.listCount = listCount;
 		this.invoker = invoker;
 		printOut = "Add String List";
 	}
 
+	/**
+	 * Execute method
+	 */
 	@Override
 	public String Execute() {
 		StringList list = new StringList(listCount.GetNumberOfLists() + 1);
@@ -30,6 +52,9 @@ public class AddStringListCommand implements Command {
 		return "";
 	}
 
+	/**
+	 * Getter for printOut
+	 */
 	@Override
 	public String GetPrintOut() {
 		return printOut;

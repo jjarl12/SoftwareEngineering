@@ -1,4 +1,9 @@
 
+/**
+ * Command interface
+ * @author Jonathan Jarl
+ *
+ */
 public interface Command {
 	
 	/**

@@ -1,4 +1,9 @@
 
+/**
+ * Clear Command
+ * @author Jonathan Jarl
+ *
+ */
 public class ClearCommand implements Command {
 	
 	/**
