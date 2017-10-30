@@ -40,7 +40,7 @@ public class Invoker {
 	public void Main() {
 		while(true) {
 			int option = 0;
-			System.out.println("String List Menu");
+			System.out.println("String and Number List Menu");
 			for (int i = 0; i < commands.size(); i++) {
 				System.out.println((i + 1) + ":" + commands.get(i).GetPrintOut());
 			}
