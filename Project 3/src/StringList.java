@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * List model
+ * StringList model
  * @author Jonathan Jarl
  *
  */
