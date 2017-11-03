@@ -1,4 +1,8 @@
-
+/**
+ * The Quit Command
+ * @author Jonathan Jarl
+ *
+ */
 public class QuitCommand implements Command{
 	
 	/**

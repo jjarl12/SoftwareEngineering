@@ -1,4 +1,9 @@
 
+/**
+ * The Sort Command
+ * @author Jonathan Jarl
+ *
+ */
 public class SortCommand implements Command{
 	
 	/**

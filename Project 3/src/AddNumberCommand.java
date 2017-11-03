@@ -39,7 +39,7 @@ public class AddNumberCommand implements Command{
 						list.AddToList(inputNumber);
 					}					
 				} catch(Exception e) {
-					System.out.println("Invalid Input");
+					System.out.println("Invalid Number");
 				}
 			}
 		}
