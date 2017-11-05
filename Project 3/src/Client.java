@@ -9,14 +9,14 @@ import java.util.ArrayList;
 public class Client {
 
 	public static void main(String[] args) {
-		new Client(2);
+		new Client();
 	}
 	
 	/**
 	 * Client Constructor that creates program
 	 * @param numLists
 	 */
-	public Client(int numLists) {
+	public Client() {
 		ArrayList<Command> commands = new ArrayList<Command>();
 		ListCounts listCount = new ListCounts();
 		Invoker invoker = new Invoker(commands);
