@@ -39,6 +39,10 @@ public class NumberList implements List{
 		return listNumber;
 	}
 	
+	public ArrayList<Number> GetList() {
+		return myList;
+	}
+	
 	/**
 	 * Getter for itemInList
 	 */
