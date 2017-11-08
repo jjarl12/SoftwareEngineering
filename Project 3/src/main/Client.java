@@ -1,8 +1,9 @@
+package main;
 import java.util.ArrayList;
 
 /**
- * Project 2
- * 1203
+ * Project 2 1203
+ * 
  * @author Jonathan Jarl
  *
  */
@@ -11,9 +12,10 @@ public class Client {
 	public static void main(String[] args) {
 		new Client();
 	}
-	
+
 	/**
 	 * Client Constructor that creates program
+	 * 
 	 * @param numLists
 	 */
 	public Client() {

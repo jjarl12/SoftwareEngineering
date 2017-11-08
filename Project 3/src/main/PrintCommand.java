@@ -1,11 +1,12 @@
+package main;
 
-public class PrintCommand implements Command{
-	
+public class PrintCommand implements Command {
+
 	/**
 	 * The list object
 	 */
 	private List list;
-	
+
 	/**
 	 * Holds main system printout
 	 */
@@ -21,6 +22,7 @@ public class PrintCommand implements Command{
 
 	/**
 	 * Constructor for PrintCommand
+	 * 
 	 * @param list
 	 */
 	public PrintCommand(List list) {

@@ -1,17 +1,19 @@
+package main;
 import java.util.Scanner;
 
 /**
  * This command adds a number to a list
+ * 
  * @author Jonathan Jarl
  *
  */
-public class AddNumberCommand implements Command{
-	
+public class AddNumberCommand implements Command {
+
 	/**
 	 * List the number is added to
 	 */
 	private NumberList list;
-	
+
 	/**
 	 * PrintOut of the command
 	 */
@@ -34,20 +36,21 @@ public class AddNumberCommand implements Command{
 					try {
 						int inputNumber = Integer.parseInt(newNumber);
 						list.AddToList(inputNumber);
-					} catch(Exception e) {
+					} catch (Exception e) {
 						double inputNumber = Double.parseDouble(newNumber);
 						list.AddToList(inputNumber);
-					}					
-				} catch(Exception e) {
+					}
+				} catch (Exception e) {
 					System.out.println("Invalid Number");
 				}
 			}
 		}
 		return "";
 	}
-	
+
 	/**
 	 * Constructor
+	 * 
 	 * @param list
 	 */
 	public AddNumberCommand(NumberList list) {

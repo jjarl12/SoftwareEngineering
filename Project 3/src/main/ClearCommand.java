@@ -1,11 +1,13 @@
+package main;
 
 /**
  * Clear Command
+ * 
  * @author Jonathan Jarl
  *
  */
 public class ClearCommand implements Command {
-	
+
 	/**
 	 * The list object
 	 */
@@ -15,7 +17,7 @@ public class ClearCommand implements Command {
 	 * The command main print string
 	 */
 	private String printOut;
-	
+
 	/**
 	 * Clear Execute method
 	 */
@@ -27,6 +29,7 @@ public class ClearCommand implements Command {
 
 	/**
 	 * ClearCommand constructor
+	 * 
 	 * @param list
 	 */
 	public ClearCommand(List list) {

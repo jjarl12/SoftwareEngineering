@@ -1,16 +1,18 @@
+package main;
 
 /**
  * The Sort Command
+ * 
  * @author Jonathan Jarl
  *
  */
-public class SortCommand implements Command{
-	
+public class SortCommand implements Command {
+
 	/**
 	 * The list object
 	 */
 	private StringList list;
-	
+
 	/**
 	 * System main printout string
 	 */
@@ -27,6 +29,7 @@ public class SortCommand implements Command{
 
 	/**
 	 * SortCommand constructor
+	 * 
 	 * @param list
 	 */
 	public SortCommand(StringList list) {

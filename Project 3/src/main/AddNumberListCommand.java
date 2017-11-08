@@ -1,35 +1,38 @@
+package main;
 
 /**
- * Add a string list command
+ * Add a number command
+ * 
  * @author Jonathan Jarl
  *
  */
-public class AddStringListCommand implements Command {
-	
+public class AddNumberListCommand implements Command {
+
 	/**
 	 * Count of lists instance
 	 */
 	private ListCounts listCount;
-	
+
 	/**
 	 * Invoker instance
 	 */
 	private Invoker invoker;
-	
+
 	/**
-	 * Command print out
+	 * Print out for command
 	 */
 	private String printOut;
-	
+
 	/**
 	 * Constructor for command
+	 * 
 	 * @param listCount
 	 * @param invoker
 	 */
-	public AddStringListCommand(ListCounts listCount, Invoker invoker) {
+	public AddNumberListCommand(ListCounts listCount, Invoker invoker) {
 		this.listCount = listCount;
 		this.invoker = invoker;
-		printOut = "Add String List";
+		printOut = "Add Number List";
 	}
 
 	/**
@@ -37,17 +40,17 @@ public class AddStringListCommand implements Command {
 	 */
 	@Override
 	public String Execute() {
-		StringList list = new StringList(listCount.GetNumberOfLists() + 1);
+		NumberList list = new NumberList(listCount.GetNumberOfLists() + 1);
 		listCount.SetNumberOfLists();
-		Command addWord = new AddWordCommand(list);
+		Command addNumber = new AddNumberCommand(list);
 		Command printList = new PrintCommand(list);
 		Command clearList = new ClearCommand(list);
-		Command sortList = new SortCommand(list);
+		Command biggestNumber = new BiggestNumberCommand(list);
 		Command quit = new QuitCommand();
-		invoker.AddCommands(invoker.GetCommands().size() - 1, addWord);
+		invoker.AddCommands(invoker.GetCommands().size() - 1, addNumber);
 		invoker.AddCommands(printList);
 		invoker.AddCommands(clearList);
-		invoker.AddCommands(sortList);
+		invoker.AddCommands(biggestNumber);
 		invoker.AddCommands(quit);
 		return "";
 	}

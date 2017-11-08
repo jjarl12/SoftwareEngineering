@@ -1,10 +1,12 @@
+package main;
 /**
  * The Quit Command
+ * 
  * @author Jonathan Jarl
  *
  */
-public class QuitCommand implements Command{
-	
+public class QuitCommand implements Command {
+
 	/**
 	 * System main printout string
 	 */
