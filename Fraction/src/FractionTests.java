@@ -8,19 +8,33 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+/**
+ * HW 28
+ * @author Jonathan Jarl and Garrett Johnson
+ *
+ */
 public class FractionTests {
 	
+	/**
+	 * Instances of a Fraction object
+	 */
 	private Fraction myFraction;
 	
 	private Fraction testFraction;
 	
 	private Fraction FinalFraction;
 	
+	/**
+	 * The setup for each test
+	 */
 	@Before
 	public void SetUp() {
 		testFraction = new CandidateFraction(2,3);
 	}
 
+	/**
+	 * Tests creating a proper fraction
+	 */
 	@Test
 	public void TestProperFraction() {
 		myFraction = new CandidateFraction(1,5);
@@ -28,15 +42,34 @@ public class FractionTests {
 		assertEquals("Failed to create a denominator", myFraction.getDenominator(), 5);
 	}
 	
+	/**
+	 * Tests creating an improper fraction
+	 */
+	@Test
+	public void TestImproperFraction() {
+		myFraction = new CandidateFraction(7,5);
+		assertEquals("Failed to create a numerator", myFraction.getNumerator(), 7);
+		assertEquals("Failed to create a denominator", myFraction.getDenominator(), 5);
+	}
+	
+	/**
+	 * An exception rule
+	 */
 	@Rule
 	public ExpectedException thrown = ExpectedException.none();
 	
+	/**
+	 * Tests a zero denominator
+	 */
 	@Test
 	public void TestZeroDenominator() {
 		thrown.expect(ArithmeticException.class);
 		myFraction = new CandidateFraction(0,0);
 	}
 	
+	/**
+	 * Tests a negative proper fraction
+	 */
 	@Test
 	public void TestNegatives() {
 		myFraction = new CandidateFraction(-1,-5);
@@ -44,6 +77,9 @@ public class FractionTests {
 		assertEquals("Failed to add negative denominator", myFraction.getDenominator(), -5);
 	}
 	
+	/**
+	 * Tests a proper fraction
+	 */
 	@Test
 	public void TestProperAddition() {
 		myFraction = new CandidateFraction(1,5);
@@ -52,6 +88,9 @@ public class FractionTests {
 		assertEquals("Denominator was not calculated correctly", FinalFraction.getDenominator(), 15);
 	}
 	
+	/**
+	 * Test a proper fraction with reduction
+	 */
 	@Test
 	public void TestProperAdditionReduction() {
 		myFraction = new CandidateFraction(1,3);
@@ -60,6 +99,9 @@ public class FractionTests {
 		assertEquals("Denominator was not calculated correctly", FinalFraction.getDenominator(), 1);
 	}
 	
+	/**
+	 * Test an add to zero
+	 */
 	@Test
 	public void TestAdditionToZero() {
 		myFraction = new CandidateFraction(-2, 3);
@@ -70,6 +112,9 @@ public class FractionTests {
 		});
 	}
 	
+	/**
+	 * Tests a positive overflow
+	 */
 	@Test
 	public void TestAdditionOverFlow() {
 		myFraction = new CandidateFraction(1, 2147483647);
@@ -77,6 +122,9 @@ public class FractionTests {
 		FinalFraction = myFraction.add(testFraction);
 	}
 	
+	/**
+	 * Tests a negative overflow
+	 */
 	@Test
 	public void TestAdditionOverFlowNegative() {
 		myFraction = new CandidateFraction(-1, 2147483647);
