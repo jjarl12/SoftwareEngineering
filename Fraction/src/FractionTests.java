@@ -74,7 +74,30 @@ public class FractionTests {
 	public void TestNegatives() {
 		myFraction = new CandidateFraction(-1,-5);
 		assertEquals("Failed to add negative numerator", myFraction.getNumerator(), -1);
-		assertEquals("Failed to add negative denominator", myFraction.getDenominator(), -5);
+		assertEquals("Failed to add negative denominator", myFraction.getDenominator(), 5);
+	}
+	
+	@Test
+	public void TestNegativeDenominator() {
+		myFraction = new CandidateFraction(1,-5);
+		assertEquals("Failed to add negative numerator", myFraction.getNumerator(), -1);
+		assertEquals("Failed to add negative denominator", myFraction.getDenominator(), 5);
+	}
+	
+	@Test
+	public void TestFractionReduction() {
+		myFraction = new CandidateFraction(2,4);
+		assertEquals("Failed to reduce numerator", myFraction.getNumerator(), 1);
+		assertEquals("Failed to reduce denominator", myFraction.getDenominator(), 2);
+	}
+	
+	@Test
+	public void TestZeroNumeratorFraction() {
+		assertTimeoutPreemptively(ofMillis(10), ()-> {
+			myFraction = new CandidateFraction(0, 5);
+			assertEquals("Failed to retain 0", myFraction.getNumerator(), 0);
+			assertEquals("Failed to reduce to 1 with 0 numerator", myFraction.getDenominator(), 1);
+		});
 	}
 	
 	/**
