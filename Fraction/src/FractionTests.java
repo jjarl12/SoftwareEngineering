@@ -100,6 +100,15 @@ public class FractionTests {
 		});
 	}
 	
+	@Test
+	public void TestNegativeReductionFraction() {
+		assertTimeoutPreemptively(ofMillis(10), ()-> {
+			myFraction = new CandidateFraction(-2, -10);
+			assertEquals("Failed to reduce numerator to -1", myFraction.getNumerator(), -1);
+			assertEquals("Failed to reduce denominator to 5", myFraction.getDenominator(), 5);
+		});
+	}
+	
 	/**
 	 * Tests a proper fraction
 	 */
@@ -152,6 +161,14 @@ public class FractionTests {
 	public void TestAdditionOverFlowNegative() {
 		myFraction = new CandidateFraction(-1, 2147483647);
 		testFraction = new CandidateFraction(-2, 3);
+		thrown.expect(ArithmeticException.class);
+		FinalFraction = myFraction.add(testFraction);
+	}
+	
+	@Test
+	public void TestAdditonOverFlowNegative2() {
+		myFraction = new CandidateFraction(-2147483647, 7);
+		testFraction = new CandidateFraction(-3, 13);
 		thrown.expect(ArithmeticException.class);
 		FinalFraction = myFraction.add(testFraction);
 	}
