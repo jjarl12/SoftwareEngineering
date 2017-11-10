@@ -74,7 +74,7 @@ public class FractionTests {
 	@Test
 	public void TestNegatives() {
 		myFraction = new CandidateFraction(-1,-5);
-		assertEquals("Failed to add negative numerator", myFraction.getNumerator(), -1);
+		assertEquals("Failed to add negative numerator", myFraction.getNumerator(), 1);
 		assertEquals("Failed to add negative denominator", myFraction.getDenominator(), 5);
 	}
 	
