@@ -49,8 +49,14 @@ public class CandidateFraction implements Fraction {
 		if(tempDen > Integer.MAX_VALUE) {
 			throw new ArithmeticException("Denominator Overflow");
 		}
+		if(tempDen < Integer.MIN_VALUE) {
+			throw new ArithmeticException("Negative Denominator Overflow"); 
+		}
 		if(tempNum1 + tempNum2 > Integer.MAX_VALUE) {
 			throw new ArithmeticException("Numerator Overflow");
+		}
+		if(tempNum1 + tempNum2 < Integer.MIN_VALUE) {
+			throw new ArithmeticException("Negative Numerator Overflow");
 		}
 				
 		CandidateFraction answer = new CandidateFraction((int)(tempNum1+tempNum2), (int) tempDen);

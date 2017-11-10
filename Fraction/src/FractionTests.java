@@ -104,7 +104,7 @@ public class FractionTests {
 	@Test
 	public void TestNegativeReductionFraction() {
 		assertTimeoutPreemptively(ofMillis(10), ()-> {
-			myFraction = new CandidateFraction(-2, -10);
+			myFraction = new CandidateFraction(2, -10);
 			assertEquals("Failed to reduce numerator to -1", myFraction.getNumerator(), -1);
 			assertEquals("Failed to reduce denominator to 5", myFraction.getDenominator(), 5);
 		});
