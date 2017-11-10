@@ -68,6 +68,15 @@ public class CandidateFraction implements Fraction {
 	 */
 	private void reduce() {
 		//this will timeout with a zero numerator
+		if (denominator < 0) {
+			if (numerator < 0) {
+				numerator = Math.abs(numerator);
+				denominator = Math.abs(denominator);
+			} else {
+				denominator = Math.abs(denominator);
+				numerator = numerator * -1;
+			}
+		}
 		if (numerator == 0) {
 			numerator = 0;
 			denominator = 1;
@@ -79,7 +88,7 @@ public class CandidateFraction implements Fraction {
 	    	while (a != b) { 
 	        	if (a > b) {
 	        		a = a - b; 
-	        	}else {
+	        	} else {
 	        	b = b - a; 
 	        	}
 	    	}
