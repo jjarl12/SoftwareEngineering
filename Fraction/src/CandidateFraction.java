@@ -62,22 +62,26 @@ public class CandidateFraction implements Fraction {
 	 */
 	private void reduce() {
 		//this will timeout with a zero numerator
-		
-		//find GCD
-		int a = Math.abs(numerator);
-		int b = Math.abs(denominator);
-	    while (a != b) { 
-	        if (a > b) {
-	           a = a - b; 
-	        }else {
-	           b = b - a; 
-	        }
-	    }
+		if (numerator == 0) {
+			numerator = 0;
+			denominator = 1;
+		}
+		else {
+			//find GCD
+			int a = Math.abs(numerator);
+			int b = Math.abs(denominator);
+	    	while (a != b) { 
+	        	if (a > b) {
+	        		a = a - b; 
+	        	}else {
+	        	b = b - a; 
+	        	}
+	    	}
 	    
-	    //a is now the GCD
-	    numerator /= a;
-	    denominator /= a;
-	    
+	    	//a is now the GCD
+	    	numerator /= a;
+	    	denominator /= a;
+		}
 	}
 
 }

@@ -6,6 +6,7 @@ import static java.time.Duration.*;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.rules.ExpectedException;
 
 /**
@@ -137,10 +138,10 @@ public class FractionTests {
 	@Test
 	public void TestAdditionToZero() {
 		myFraction = new CandidateFraction(-2, 3);
-		assertTimeoutPreemptively(ofMillis(10), ()-> {
+		assertTimeoutPreemptively(ofMillis(100), ()-> {
 			FinalFraction = myFraction.add(testFraction);
 			assertEquals("Reduction to Zero was improper", FinalFraction.getNumerator(), 0);
-			assertEquals("Reduction to Zero was improper", FinalFraction.getDenominator(), 3);
+			assertEquals("Reduction to Zero was improper", FinalFraction.getDenominator(), 1);
 		});
 	}
 	
