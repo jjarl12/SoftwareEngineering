@@ -148,7 +148,7 @@ public class FractionTests {
 	 * Tests a positive overflow
 	 */
 	@Test
-	public void TestAdditionOverFlow() {
+	public void TestAdditionOverFlowDenominator() {
 		myFraction = new CandidateFraction(1, 2147483647);
 		thrown.expect(ArithmeticException.class);
 		FinalFraction = myFraction.add(testFraction);
@@ -165,10 +165,24 @@ public class FractionTests {
 		FinalFraction = myFraction.add(testFraction);
 	}
 	
+	/**
+	 * Test a negative numerator overflow
+	 */
 	@Test
 	public void TestAdditonOverFlowNegative2() {
 		myFraction = new CandidateFraction(-2147483647, 7);
 		testFraction = new CandidateFraction(-3, 13);
+		thrown.expect(ArithmeticException.class);
+		FinalFraction = myFraction.add(testFraction);
+	}
+	
+	/**
+	 * Test a numerator overflow
+	 */
+	@Test
+	public void TestAdditionOverFlowNumerator() {
+		myFraction = new CandidateFraction(2147483647, 2);
+		testFraction = new CandidateFraction(1, 2);
 		thrown.expect(ArithmeticException.class);
 		FinalFraction = myFraction.add(testFraction);
 	}
