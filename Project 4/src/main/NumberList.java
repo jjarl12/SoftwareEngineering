@@ -1,5 +1,6 @@
 package main;
 import java.util.ArrayList;
+import java.util.Observable;
 
 /**
  * NumberList model
@@ -7,7 +8,7 @@ import java.util.ArrayList;
  * @author Jonathan Jarl
  *
  */
-public class NumberList implements List {
+public class NumberList extends List{
 
 	/**
 	 * The actual list
@@ -17,7 +18,7 @@ public class NumberList implements List {
 	/**
 	 * The number of the list
 	 */
-	private int listNumber;
+	private String listName;
 
 	/**
 	 * The number of items in the list
@@ -29,17 +30,19 @@ public class NumberList implements List {
 	 * 
 	 * @param listNumber
 	 */
-	public NumberList(int listNumber) {
+	public NumberList(String listName) {
 		myList = new ArrayList<Number>();
 		itemInList = 1;
-		this.listNumber = listNumber;
+		this.listName = listName;
+		setChanged();
+		notifyObservers();
 	}
 
 	/**
 	 * Getter for listNumber
 	 */
-	public int GetListNumber() {
-		return listNumber;
+	public String GetListName() {
+		return listName;
 	}
 
 	/**
@@ -53,13 +56,12 @@ public class NumberList implements List {
 	 * PrintList method
 	 */
 	public String PrintList() {
-		String returnString = "List " + listNumber + " is {";
+		String returnString = "";
 		for (int i = 0; i < myList.size(); i++) {
 			returnString += myList.get(i);
 			if (i + 1 != myList.size())
-				returnString += ", ";
+				returnString += "\n";
 		}
-		returnString += "}";
 		return returnString;
 	}
 
@@ -71,6 +73,8 @@ public class NumberList implements List {
 	public void AddToList(int number) {
 		myList.add(number);
 		itemInList++;
+		setChanged();
+		notifyObservers();
 	}
 
 	/**
@@ -81,6 +85,8 @@ public class NumberList implements List {
 	public void AddToList(double number) {
 		myList.add(number);
 		itemInList++;
+		setChanged();
+		notifyObservers();
 	}
 
 	/**
@@ -89,6 +95,8 @@ public class NumberList implements List {
 	public void ClearList() {
 		myList.clear();
 		itemInList = 1;
+		setChanged();
+		notifyObservers();
 	}
 
 	/**

@@ -17,7 +17,7 @@ public class PrintCommand implements Command {
 	 */
 	@Override
 	public String Execute() {
-		return list.PrintList() + "\n";
+		return list.PrintList();
 	}
 
 	/**
@@ -27,7 +27,7 @@ public class PrintCommand implements Command {
 	 */
 	public PrintCommand(List list) {
 		this.list = list;
-		printOut = "Print List " + list.GetListNumber();
+		printOut = "Print List " + list.GetListName();
 	}
 
 	/**

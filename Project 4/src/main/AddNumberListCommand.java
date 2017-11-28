@@ -1,5 +1,7 @@
 package main;
 
+import java.util.ArrayList;
+
 /**
  * Add a number command
  * 
@@ -14,11 +16,6 @@ public class AddNumberListCommand implements Command {
 	private ListCounts listCount;
 
 	/**
-	 * Invoker instance
-	 */
-	private Invoker invoker;
-
-	/**
 	 * Print out for command
 	 */
 	private String printOut;
@@ -29,9 +26,7 @@ public class AddNumberListCommand implements Command {
 	 * @param listCount
 	 * @param invoker
 	 */
-	public AddNumberListCommand(ListCounts listCount, Invoker invoker) {
-		this.listCount = listCount;
-		this.invoker = invoker;
+	public AddNumberListCommand() {
 		printOut = "Add Number List";
 	}
 
@@ -40,18 +35,18 @@ public class AddNumberListCommand implements Command {
 	 */
 	@Override
 	public String Execute() {
-		NumberList list = new NumberList(listCount.GetNumberOfLists() + 1);
-		listCount.SetNumberOfLists();
+		String listName = "";
+		NumberList list = new NumberList(listName);
+		
 		Command addNumber = new AddNumberCommand(list);
 		Command printList = new PrintCommand(list);
 		Command clearList = new ClearCommand(list);
 		Command biggestNumber = new BiggestNumberCommand(list);
-		Command quit = new QuitCommand();
-		invoker.AddCommands(invoker.GetCommands().size() - 1, addNumber);
-		invoker.AddCommands(printList);
-		invoker.AddCommands(clearList);
-		invoker.AddCommands(biggestNumber);
-		invoker.AddCommands(quit);
+		ArrayList<Command> listOfCommands = new ArrayList<Command>();
+		listOfCommands.add(addNumber);
+		listOfCommands.add(clearList);
+		listOfCommands.add(biggestNumber);
+		ListViewer newList = new ListViewer(listOfCommands, printList, listName, list);
 		return "";
 	}
 

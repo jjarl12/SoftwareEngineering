@@ -1,36 +1,38 @@
 package main;
 
+import java.util.Observable;
+
 /**
  * List interface
  * 
  * @author Jonathan Jarl
  *
  */
-public interface List {
+public abstract class List extends Observable{
 
 	/**
 	 * ClearList method
 	 */
-	public void ClearList();
+	public abstract void ClearList();
 
 	/**
 	 * GetListNumber method
 	 * 
 	 * @return
 	 */
-	public int GetListNumber();
+	public abstract String GetListName();
 
 	/**
 	 * GetItemInList method
 	 * 
 	 * @return
 	 */
-	public int GetItemInList();
+	public abstract int GetItemInList();
 
 	/**
 	 * PrintList method
 	 * 
 	 * @return
 	 */
-	public String PrintList();
+	public abstract String PrintList();
 }

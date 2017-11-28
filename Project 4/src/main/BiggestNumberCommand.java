@@ -25,7 +25,7 @@ public class BiggestNumberCommand implements Command {
 	 */
 	public BiggestNumberCommand(NumberList list) {
 		this.list = list;
-		printOut = "Return biggest number in List " + list.GetListNumber();
+		printOut = "Return biggest number in List " + list.GetListName();
 	}
 
 	/**
@@ -35,7 +35,7 @@ public class BiggestNumberCommand implements Command {
 	public String Execute() {
 		if(list.GetLargestNumber() == null)
 			return "There is nothing in the list\n";
-		return "Biggest number in List " + list.GetListNumber() + " is " + list.GetLargestNumber() + "\n";
+		return "Biggest number in List " + list.GetListName() + " is " + list.GetLargestNumber() + "\n";
 	}
 
 	/**

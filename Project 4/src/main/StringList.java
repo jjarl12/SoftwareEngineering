@@ -1,6 +1,7 @@
 package main;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Observable;
 
 /**
  * StringList model
@@ -8,7 +9,7 @@ import java.util.Collections;
  * @author Jonathan Jarl
  *
  */
-public class StringList implements List {
+public class StringList extends List {
 
 	/**
 	 * string list
@@ -18,7 +19,7 @@ public class StringList implements List {
 	/**
 	 * Stores the number of the list
 	 */
-	private int listNumber;
+	private String listName;
 
 	/**
 	 * Stores the number of words in the list
@@ -28,10 +29,12 @@ public class StringList implements List {
 	/**
 	 * list constructor
 	 */
-	public StringList(int listNumber) {
+	public StringList(String listName) {
 		myList = new ArrayList<String>();
 		itemInList = 1;
-		this.listNumber = listNumber;
+		this.listName = listName;
+		setChanged();
+		notifyObservers();
 	}
 
 	/**
@@ -39,8 +42,8 @@ public class StringList implements List {
 	 * 
 	 * @return
 	 */
-	public int GetListNumber() {
-		return listNumber;
+	public String GetListName() {
+		return listName;
 	}
 
 	/**
@@ -58,13 +61,12 @@ public class StringList implements List {
 	 * @return
 	 */
 	public String PrintList() {
-		String returnString = "List " + listNumber + " is {";
+		String returnString = "";
 		for (int i = 0; i < myList.size(); i++) {
 			returnString += myList.get(i);
 			if (i + 1 != myList.size())
-				returnString += ", ";
+				returnString += "\n";
 		}
-		returnString += "}";
 		return returnString;
 	}
 
@@ -73,6 +75,8 @@ public class StringList implements List {
 	 */
 	public void Sort() {
 		Collections.sort(myList);
+		setChanged();
+		notifyObservers();
 	}
 
 	/**
@@ -83,6 +87,8 @@ public class StringList implements List {
 	public void AddToList(String item) {
 		myList.add(item);
 		itemInList++;
+		setChanged();
+		notifyObservers();
 	}
 
 	/**
@@ -91,5 +97,7 @@ public class StringList implements List {
 	public void ClearList() {
 		myList.clear();
 		itemInList = 1;
+		setChanged();
+		notifyObservers();
 	}
 }

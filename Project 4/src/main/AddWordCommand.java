@@ -1,6 +1,8 @@
 package main;
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 /**
  * Add Word Command
  * 
@@ -24,18 +26,12 @@ public class AddWordCommand implements Command {
 	 */
 	@Override
 	public String Execute() {
-		System.out.println("\nEnter words into List " + (list.GetListNumber()) + " one at a time");
-		System.out.println("Enter the number 0 to stop\n");
-		String word = "";
-		Scanner input = new Scanner(System.in);
-		while (!word.equals("0")) {
-			System.out.print("Enter word " + list.GetItemInList() + ": ");
-			word = input.nextLine();
-			if (!word.equals("0")) {
-				list.AddToList(word);
+		
+		String word = (String)JOptionPane.showInputDialog("Please type in a word:");			
+		if (!word.equals("0")) {
+			list.AddToList(word);
 			}
-		}
-		return "";
+		return "Word added successfully";
 	}
 
 	/**
@@ -45,7 +41,7 @@ public class AddWordCommand implements Command {
 	 */
 	public AddWordCommand(StringList list) {
 		this.list = list;
-		printOut = "Enter words into List " + list.GetListNumber();
+		printOut = "Enter words into List " + list.GetListName();
 	}
 
 	/**

@@ -24,7 +24,7 @@ public class SortCommand implements Command {
 	@Override
 	public String Execute() {
 		list.Sort();
-		return "List " + list.GetListNumber() + " is now sorted.\n";
+		return "List " + list.GetListName() + " is now sorted.\n";
 	}
 
 	/**
@@ -34,7 +34,7 @@ public class SortCommand implements Command {
 	 */
 	public SortCommand(StringList list) {
 		this.list = list;
-		printOut = "Sort List " + list.GetListNumber();
+		printOut = "Sort List " + list.GetListName();
 	}
 
 	/**

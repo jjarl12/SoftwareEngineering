@@ -1,6 +1,8 @@
 package main;
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 /**
  * This command adds a number to a list
  * 
@@ -24,13 +26,7 @@ public class AddNumberCommand implements Command {
 	 */
 	@Override
 	public String Execute() {
-		System.out.println("\nEnter numbers into List " + list.GetListNumber() + " one at at time");
-		System.out.println("Enter the word \"quit\" to stop");
-		String newNumber = "";
-		Scanner input = new Scanner(System.in);
-		while (!newNumber.equals("quit")) {
-			System.out.print("Enter number " + list.GetItemInList() + ": ");
-			newNumber = input.nextLine();
+		String newNumber = (String)JOptionPane.showInputDialog("Please type in a number:");
 			if (!newNumber.equals("quit")) {
 				try {
 					try {
@@ -41,11 +37,10 @@ public class AddNumberCommand implements Command {
 						list.AddToList(inputNumber);
 					}
 				} catch (Exception e) {
-					System.out.println("Invalid Number");
+					return "You did not enter a valid number.";
 				}
 			}
-		}
-		return "";
+		return "Number added successfully";
 	}
 
 	/**
@@ -55,7 +50,7 @@ public class AddNumberCommand implements Command {
 	 */
 	public AddNumberCommand(NumberList list) {
 		this.list = list;
-		printOut = "Enter numbers into List " + list.GetListNumber();
+		printOut = "Enter numbers into List " + list.GetListName();
 	}
 
 	/**

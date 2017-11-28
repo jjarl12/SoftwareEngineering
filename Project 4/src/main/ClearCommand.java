@@ -24,7 +24,7 @@ public class ClearCommand implements Command {
 	@Override
 	public String Execute() {
 		list.ClearList();
-		return "List " + list.GetListNumber() + " is now empty\n";
+		return "List " + list.GetListName() + " is now empty\n";
 	}
 
 	/**
@@ -34,7 +34,7 @@ public class ClearCommand implements Command {
 	 */
 	public ClearCommand(List list) {
 		this.list = list;
-		printOut = "Clear List " + list.GetListNumber();
+		printOut = "Clear List " + list.GetListName();
 	}
 
 	/**
