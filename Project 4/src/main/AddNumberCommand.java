@@ -27,19 +27,19 @@ public class AddNumberCommand implements Command {
 	@Override
 	public String Execute() {
 		String newNumber = (String)JOptionPane.showInputDialog("Please type in a number:");
-			if (!newNumber.equals("quit")) {
-				try {
-					try {
-						int inputNumber = Integer.parseInt(newNumber);
-						list.AddToList(inputNumber);
-					} catch (Exception e) {
-						double inputNumber = Double.parseDouble(newNumber);
-						list.AddToList(inputNumber);
-					}
-				} catch (Exception e) {
-					return "You did not enter a valid number.";
-				}
+		if (newNumber == null)
+			return "";
+		try {
+			try {
+				int inputNumber = Integer.parseInt(newNumber);
+				list.AddToList(inputNumber);
+			} catch (Exception e) {
+				double inputNumber = Double.parseDouble(newNumber);
+				list.AddToList(inputNumber);
 			}
+		} catch (Exception e) {
+			return "You did not enter a valid number.";
+		}
 		return "Number added successfully";
 	}
 

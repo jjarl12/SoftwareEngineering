@@ -3,7 +3,7 @@ package main;
 import java.util.Observable;
 
 /**
- * List interface
+ * List abstract class
  * 
  * @author Jonathan Jarl
  *

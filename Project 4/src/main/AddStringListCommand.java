@@ -11,14 +11,14 @@ import java.util.ArrayList;
 public class AddStringListCommand implements Command {
 
 	/**
-	 * Count of lists instance
-	 */
-	private String ListName;
-
-	/**
 	 * Command print out
 	 */
 	private String printOut;
+	
+	/**
+	 * Instance of Gui client
+	 */
+	private GUIClient mainGui;
 
 	/**
 	 * Constructor for command
@@ -26,7 +26,8 @@ public class AddStringListCommand implements Command {
 	 * @param listCount
 	 * @param invoker
 	 */
-	public AddStringListCommand() {
+	public AddStringListCommand(GUIClient mainGui) {
+		this.mainGui = mainGui;
 		printOut = "Add String List";
 	}
 
@@ -35,7 +36,9 @@ public class AddStringListCommand implements Command {
 	 */
 	@Override
 	public String Execute() {
-		String listName = "Test";
+		String listName = mainGui.getTitle();
+		if (listName.equals(""))
+			return "Please enter a title for the list";
 		StringList list = new StringList(listName);
 		
 		Command addWord = new AddWordCommand(list);
@@ -46,7 +49,7 @@ public class AddStringListCommand implements Command {
 		listOfCommands.add(addWord);
 		listOfCommands.add(clearList);
 		listOfCommands.add(sortList);
-		ListViewer newList = new ListViewer(listOfCommands, printList, listName, list);
+		new ListViewer(listOfCommands, printList, listName, list);
 		return "";
 	}
 

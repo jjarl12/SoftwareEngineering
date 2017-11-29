@@ -27,10 +27,12 @@ public class AddWordCommand implements Command {
 	@Override
 	public String Execute() {
 		
-		String word = (String)JOptionPane.showInputDialog("Please type in a word:");			
-		if (!word.equals("0")) {
-			list.AddToList(word);
-			}
+		String word = (String)JOptionPane.showInputDialog("Please type in a word:");
+		if (word == null)
+			return "";
+		if (word.equals(""))
+			return "Please enter a word";
+		list.AddToList(word);
 		return "Word added successfully";
 	}
 

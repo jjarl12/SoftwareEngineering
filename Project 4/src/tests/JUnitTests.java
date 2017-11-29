@@ -33,7 +33,7 @@ public class JUnitTests {
 	@Test
 	public void testAddInt() {
 		myList.AddToList(5);
-		assertEquals("5 failed to be added to list", myList.PrintList(), "List " + myList.GetListName() + " is {5}");
+		assertEquals("5 failed to be added to list", myList.PrintList(), "5");
 	}
 	
 	/**
@@ -42,7 +42,7 @@ public class JUnitTests {
 	@Test
 	public void testAddDouble() {
 		myList.AddToList(5.435);
-		assertEquals("5.435 failed to be added to list", myList.PrintList(), "List " + myList.GetListName() + " is {5.435}");
+		assertEquals("5.435 failed to be added to list", myList.PrintList(), "5.435");
 	}
 	
 	/**
@@ -52,7 +52,7 @@ public class JUnitTests {
 	public void testAddZero() {
 		myList.AddToList(0);
 		myList.AddToList(0.0);
-		assertEquals("0 failed to be added to list", myList.PrintList(), "List " + myList.GetListName() + " is {0, 0.0}");
+		assertEquals("0 failed to be added to list", myList.PrintList(), "0\n0.0");
 	}
 	
 	/**
@@ -61,7 +61,7 @@ public class JUnitTests {
 	@Test
 	public void testAddNegative() {
 		myList.AddToList(-5);
-		assertEquals("-5 failed to be added to list", myList.PrintList(), "List " + myList.GetListName() + " is {-5}");
+		assertEquals("-5 failed to be added to list", myList.PrintList(), "-5");
 	}
 	
 	/**

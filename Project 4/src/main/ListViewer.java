@@ -12,16 +12,40 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+/**
+ * The list viewer class
+ * @author Jonathan Jarl
+ *
+ */
 public class ListViewer extends JFrame implements Observer {
 	
+	/**
+	 * The main panel
+	 */
 	private JPanel mainPanel;
 	
+	/**
+	 * The list associated with the view
+	 */
 	private List myList;
 	
+	/**
+	 * The printout of the list
+	 */
 	private JTextArea displayField;
 	
+	/**
+	 * The command to pull the printout
+	 */
 	private Command printCommand;
 	
+	/**
+	 * Constructor
+	 * @param listOfCommands
+	 * @param printCommand
+	 * @param listName
+	 * @param myList
+	 */
 	public ListViewer(ArrayList<Command> listOfCommands, Command printCommand, String listName, List myList) {
 		this.myList = myList;
 		myList.addObserver(this);
@@ -32,6 +56,7 @@ public class ListViewer extends JFrame implements Observer {
 		
 		JPanel listPanel = new JPanel();
 		displayField = new JTextArea();
+		displayField.setEditable(false);
 		listPanel.add(displayField);
 		mainPanel.add(listPanel, BorderLayout.WEST);
 		
@@ -49,6 +74,9 @@ public class ListViewer extends JFrame implements Observer {
 		pack();
 	}
 
+	/**
+	 * Updates the display field
+	 */
 	@Override
 	public void update(Observable o, Object arg) {
 		displayField.setText(printCommand.Execute()); 

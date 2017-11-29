@@ -10,7 +10,6 @@ public interface Command {
 
 	/**
 	 * Execute Command
-	 * 
 	 * @return
 	 */
 	public String Execute();

@@ -1,5 +1,10 @@
 package main;
 
+/**
+ * The Print Command
+ * @author Jonathan Jarl
+ *
+ */
 public class PrintCommand implements Command {
 
 	/**

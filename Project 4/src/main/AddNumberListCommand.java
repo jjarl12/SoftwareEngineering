@@ -11,14 +11,14 @@ import java.util.ArrayList;
 public class AddNumberListCommand implements Command {
 
 	/**
-	 * Count of lists instance
-	 */
-	private ListCounts listCount;
-
-	/**
 	 * Print out for command
 	 */
 	private String printOut;
+	
+	/**
+	 * Instance of Gui client
+	 */
+	private GUIClient mainGui;
 
 	/**
 	 * Constructor for command
@@ -26,7 +26,8 @@ public class AddNumberListCommand implements Command {
 	 * @param listCount
 	 * @param invoker
 	 */
-	public AddNumberListCommand() {
+	public AddNumberListCommand(GUIClient mainGui) {
+		this.mainGui = mainGui;
 		printOut = "Add Number List";
 	}
 
@@ -35,7 +36,9 @@ public class AddNumberListCommand implements Command {
 	 */
 	@Override
 	public String Execute() {
-		String listName = "";
+		String listName = mainGui.getTitle();
+		if (listName.equals(""))
+			return "Please enter a title for the list";
 		NumberList list = new NumberList(listName);
 		
 		Command addNumber = new AddNumberCommand(list);
@@ -46,7 +49,7 @@ public class AddNumberListCommand implements Command {
 		listOfCommands.add(addNumber);
 		listOfCommands.add(clearList);
 		listOfCommands.add(biggestNumber);
-		ListViewer newList = new ListViewer(listOfCommands, printList, listName, list);
+		new ListViewer(listOfCommands, printList, listName, list);
 		return "";
 	}
 
